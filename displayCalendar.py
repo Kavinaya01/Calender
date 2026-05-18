@@ -1,3 +1,4 @@
+'''This file is for github actions'''
 def display_cal(year_input, month_input):
     """
     Display a calendar for the desired year and month.
