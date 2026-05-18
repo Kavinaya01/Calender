@@ -32,7 +32,7 @@ jobs:
 
       - name: Run Calendar Program
         run: |
-          echo -e "2026\n5" | python calendar_app.py
+          echo -e "2026\n5" | python displayCalendar.py
 
       - name: Done
         run: echo "Workflow completed successfully"
