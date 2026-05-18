@@ -1,0 +1,37 @@
+name: Python Calendar App
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  calendar-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Show Python Version
+        run: python --version
+
+      - name: Check Python Syntax
+        run: |
+          python -m py_compile calendar_app.py
+
+      - name: Run Calendar Program
+        run: |
+          printf "2026\n5\n" | python calendar_app.py
+
+      - name: Workflow Success
+        run: |
+          echo "Calendar workflow executed successfully!"
