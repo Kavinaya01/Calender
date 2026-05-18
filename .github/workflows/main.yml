@@ -1,4 +1,4 @@
-name: Python Calendar App
+name: Calendar Workflow
 
 on:
   push:
@@ -21,17 +21,18 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Show Files
+        run: ls -la
+
       - name: Show Python Version
         run: python --version
 
-      - name: Check Python Syntax
-        run: |
-          python -m py_compile calendar_app.py
+      - name: Syntax Check
+        run: python -m py_compile displayCalendar.py
 
       - name: Run Calendar Program
         run: |
-          printf "2026\n5\n" | python calendar_app.py
+          echo -e "2026\n5" | python calendar_app.py
 
-      - name: Workflow Success
-        run: |
-          echo "Calendar workflow executed successfully!"
+      - name: Done
+        run: echo "Workflow completed successfully"
